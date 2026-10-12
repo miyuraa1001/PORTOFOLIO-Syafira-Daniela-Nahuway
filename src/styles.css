@@ -1,0 +1,138 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-lavender: var(--lavender);
+  --color-lavender-blue: var(--lavender-blue);
+  --color-soft-purple: var(--soft-purple);
+  --color-light-pink: var(--light-pink);
+  --color-accent-pink: var(--accent-pink);
+  --font-display: "Poppins", sans-serif;
+  --font-sans: "Inter", sans-serif;
+}
+
+:root {
+  --radius: 1.5rem;
+  /* EdTech Pastel Theme — bg #F8EBEF, gradient #8A8DF5 → #F58DB8 */
+  --background: oklch(0.95 0.025 350);
+  --foreground: oklch(0.20 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.20 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.20 0 0);
+  --primary: oklch(0.68 0.16 285);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.94 0.035 350);
+  --secondary-foreground: oklch(0.25 0.05 295);
+  --muted: oklch(0.96 0.02 340);
+  --muted-foreground: oklch(0.48 0.04 295);
+  --accent: oklch(0.78 0.14 350);
+  --accent-foreground: oklch(1 0 0);
+  --destructive: oklch(0.62 0.22 25);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.90 0.03 330);
+  --input: oklch(0.96 0.02 340);
+  --ring: oklch(0.68 0.16 285);
+
+  --lavender: oklch(0.92 0.04 320);
+  --light-pink: oklch(0.95 0.025 350);
+  --soft-purple: oklch(0.75 0.12 305);
+  --lavender-blue: oklch(0.68 0.16 285);
+  --accent-pink: oklch(0.78 0.14 350);
+
+  --gradient-primary: linear-gradient(135deg, #8A8DF5 0%, #F58DB8 100%);
+  --gradient-soft: linear-gradient(135deg, #A98BE7 0%, #F7C3D8 100%);
+  --gradient-cool: linear-gradient(135deg, #8A8DF5 0%, #A98BE7 100%);
+  --gradient-warm: linear-gradient(135deg, #F7C3D8 0%, #F58DB8 100%);
+
+  --shadow-soft: 0 8px 30px -10px rgba(138, 141, 245, 0.18);
+  --shadow-card: 0 20px 50px -15px rgba(138, 141, 245, 0.22);
+  --shadow-glow: 0 25px 60px -20px rgba(245, 141, 184, 0.45);
+}
+
+.dark {
+  --background: oklch(0.95 0.025 350);
+  --foreground: oklch(0.20 0 0);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html { scroll-behavior: smooth; }
+  body {
+    background: #F8EBEF;
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.02em; font-weight: 700; }
+}
+
+@utility soft-card {
+  background: #FFFFFF;
+  border: 1px solid oklch(0.92 0.02 330 / 0.7);
+  box-shadow: var(--shadow-soft);
+  border-radius: 1.75rem;
+}
+
+@utility glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: var(--shadow-card);
+}
+
+@utility gradient-text {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility btn-gradient {
+  background: var(--gradient-primary);
+  color: white;
+  box-shadow: 0 10px 28px -8px rgba(138, 141, 245, 0.5);
+  transition: all 0.3s ease;
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 36px -8px rgba(245, 141, 184, 0.55);
+  }
+}
+
+@utility float-anim { animation: float 6s ease-in-out infinite; }
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@utility fade-up { animation: fade-up 0.8s ease-out both; }
