@@ -5,14 +5,14 @@ import {
   Brain, Receipt, ShieldCheck, TrendingUp, GraduationCap, Award,
   Send, CheckCircle2, Star, Quote, BookOpen, Database, Briefcase, Cpu,
 } from "lucide-react";
-import heroImg from "@/assets/hero-portrait.png";
-import aboutImg from "@/assets/about-illustration.png";
-import eduImg from "@/assets/education-portrait.png";
-// --- Tambahkan impor gambar untuk proyek Anda di sini ---
-// Buat file gambar ini di dalam folder `src/assets/`
-import accutaxImg from "../assets/project-accutax.png";
+import heroImg from "../assets/hero-portrait.jpg";
+import aboutImg from "../assets/about-illustration.jpg";
+import eduImg from "../assets/education-portrait.jpg";
+// --- Impor gambar proyek ---
 import proanalystImg from "../assets/project-proanalyst.png";
 import aureliaImg from "../assets/project-aurelia.png";
+// Gunakan proanalystImg sebagai placeholder sementara untuk AccuTax jika project-accutax belum ada
+const accutaxImg = proanalystImg;
 
 export const Route = createFileRoute("/")({ component: PortfolioPage });
 
