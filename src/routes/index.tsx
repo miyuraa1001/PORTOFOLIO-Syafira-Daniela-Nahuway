@@ -9,10 +9,9 @@ import heroImg from "../assets/hero-portrait.jpg";
 import aboutImg from "../assets/about-illustration.jpg";
 import eduImg from "../assets/education-portrait.jpg";
 // --- Impor gambar proyek ---
+import accutaxImg from "../assets/project-accutax.png";
 import proanalystImg from "../assets/project-proanalyst.png";
 import aureliaImg from "../assets/project-aurelia.png";
-// Gunakan proanalystImg sebagai placeholder sementara untuk AccuTax jika project-accutax belum ada
-const accutaxImg = proanalystImg;
 
 export const Route = createFileRoute("/")({ component: PortfolioPage });
 
@@ -264,7 +263,15 @@ function Expertise() {
 }
 
 export const projects = [
-  { slug: "accutax", name: "AccuTax", category: "Tax Technology", desc: "Smart tax calculation platform designed to simplify tax compliance and calculations.", features: ["Tax Calculator", "Tax Estimation", "Tax Reporting"], icon: Calculator, image: accutaxImg },
+  {
+    slug: "accutax",
+    name: "AccuTax",
+    category: "Tax Technology",
+    desc: "Platform kalkulasi pajak profesional berbasis web yang modern, responsif, dan akurat sesuai PP 58/2023 serta PMK 168/2023.",
+    features: ["Kalkulator Pajak", "PP 58/2023", "PMK 168/2023", "Regulasi Terbaru"],
+    icon: Calculator,
+    image: accutaxImg,
+  },
   { slug: "the-pro-analyst", name: "The Pro Analyst", category: "Financial Reporting", desc: "Interactive financial reporting dashboard for decision-making and business analysis.", features: ["KPI Dashboard", "Financial Ratios", "Trend Analysis"], icon: TrendingUp, image: proanalystImg },
   { slug: "aurelia-ai", name: "Aurelia.ai", category: "AI & Data Analytics", desc: "AI-powered platform helping analysts automate repetitive analytical tasks and generate faster insights.", features: ["Data Cleaning", "AI Insights", "Reporting Automation"], icon: Brain, image: aureliaImg },
 ];

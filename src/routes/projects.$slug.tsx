@@ -56,17 +56,42 @@ function ProjectDetail() {
           <div className="mt-12 md:mt-16 grid md:grid-cols-3 gap-12">
             <div className="md:col-span-2">
               <h2 className="text-2xl font-bold mb-4">About The Project</h2>
-              <div className="prose prose-lg max-w-none text-muted-foreground leading-relaxed">
-                {/* 
-                  ANDA BISA MENGISI PENJELASAN DETAIL PROYEK DI SINI.
-                  Gunakan tag <p>, <ul>, <ol> untuk menjelaskan.
-                */}
+              <div className="prose prose-lg max-w-none text-muted-foreground leading-relaxed space-y-4">
                 <p>{project.desc}</p>
-                <p>
-                  Ini adalah tempat untuk penjelasan yang lebih mendalam tentang
-                  proyek Anda. Jelaskan masalah yang Anda selesaikan, teknologi
-                  yang digunakan, dan hasil yang dicapai.
-                </p>
+                {project.slug === "accutax" ? (
+                  <>
+                    <p>
+                      <strong>AccuTax</strong> dirancang untuk menyederhanakan proses kalkulasi pajak penghasilan yang kompleks menjadi otomatis, instan, dan minim kesalahan manual. Mengadopsi regulasi perpajakan Indonesia terbaru (<strong>PP 58/2023</strong> dan <strong>PMK 168/2023</strong>), sistem ini menerapkan skema Tarif Efektif Rata-Rata (TER) untuk perhitungan PPh Pasal 21 secara akurat dan transparan.
+                    </p>
+                    <div className="pt-2">
+                      <h3 className="text-lg font-bold text-foreground mb-3">Key Features:</h3>
+                      <div className="flex flex-wrap gap-2">
+                        {project.features.map((feature: string) => (
+                          <span
+                            key={feature}
+                            className="text-xs font-semibold px-3 py-1.5 rounded-full bg-secondary text-primary"
+                          >
+                            {feature}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </>
+                ) : (
+                  <div className="pt-2">
+                    <h3 className="text-lg font-bold text-foreground mb-3">Key Features:</h3>
+                    <div className="flex flex-wrap gap-2">
+                      {project.features.map((feature: string) => (
+                        <span
+                          key={feature}
+                          className="text-xs font-semibold px-3 py-1.5 rounded-full bg-secondary text-primary"
+                        >
+                          {feature}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
             <div>
